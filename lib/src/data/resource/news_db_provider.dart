@@ -28,12 +28,12 @@ class NewsDbProvider implements NewsSource, NewsCache {
         id INTEGER PRIMARY KEY,
         by TEXT,
         type TEXT,
-        time INTEGER
+        time INTEGER,
         kids BLOB,
         url TEXT,
         score INTEGER,
         title TEXT,
-        descedants INTEGER
+        descendants INTEGER
         )
          """);
       },

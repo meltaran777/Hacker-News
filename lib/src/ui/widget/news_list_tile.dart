@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_data_fetching/src/bloc/stories_bloc_provider.dart';
+import 'package:flutter_data_fetching/src/bloc/stories/stories_bloc_provider.dart';
 import 'package:flutter_data_fetching/src/data/model/item_model.dart';
 import 'package:flutter_data_fetching/src/ui/widget/loading_container.dart';
 

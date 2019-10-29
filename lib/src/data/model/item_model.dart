@@ -26,7 +26,9 @@ class ItemModel {
       : by = map["by"],
         descendants = map["descendants"],
         id = map["id"],
-        kids = jsonDecode(map["kids"]),
+        kids = jsonDecode(map["kids"]) != null
+            ? List<int>.from(jsonDecode(map["kids"]))
+            : null,
         score = map["score"],
         time = map["time"],
         title = map["title"],

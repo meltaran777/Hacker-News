@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_data_fetching/src/bloc/stories_bloc.dart';
-import 'package:flutter_data_fetching/src/bloc/stories_bloc_provider.dart';
+import 'package:flutter_data_fetching/src/bloc/stories/stories_bloc.dart';
+import 'package:flutter_data_fetching/src/bloc/stories/stories_bloc_provider.dart';
 import 'package:flutter_data_fetching/src/ui/widget/news_list_tile.dart';
 import 'package:flutter_data_fetching/src/ui/widget/refresh.dart';
 
