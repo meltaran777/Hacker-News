@@ -33,6 +33,7 @@ class NewsDbProvider implements NewsSource, NewsCache {
         url TEXT,
         score INTEGER,
         title TEXT,
+        text TEXT,
         descendants INTEGER
         )
          """);

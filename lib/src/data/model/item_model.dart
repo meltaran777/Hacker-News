@@ -10,21 +10,23 @@ class ItemModel {
   final String title;
   final String type;
   final String url;
+  final String text;
 
   ItemModel.fromJsonMap(Map<String, dynamic> map)
-      : by = map["by"],
-        descendants = map["descendants"],
+      : by = map["by"] ?? '',
+        descendants = map["descendants"] ?? 0,
         id = map["id"],
         kids = map["kids"] != null ? List<int>.from(map["kids"]) : null,
         score = map["score"],
         time = map["time"],
         title = map["title"],
+        text = map["text"] ?? '',
         type = map["type"],
         url = map["url"];
 
   ItemModel.fromDb(Map<String, dynamic> map)
-      : by = map["by"],
-        descendants = map["descendants"],
+      : by = map["by"] ?? '',
+        descendants = map["descendants"] ?? 0,
         id = map["id"],
         kids = jsonDecode(map["kids"]) != null
             ? List<int>.from(jsonDecode(map["kids"]))
@@ -32,6 +34,7 @@ class ItemModel {
         score = map["score"],
         time = map["time"],
         title = map["title"],
+        text = map["text"] ?? '',
         type = map["type"],
         url = map["url"];
 
@@ -44,6 +47,7 @@ class ItemModel {
     data['score'] = score;
     data['time'] = time;
     data['title'] = title;
+    data['text'] = text;
     data['type'] = type;
     data['url'] = url;
     return data;
