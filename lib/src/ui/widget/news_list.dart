@@ -8,7 +8,6 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final newsBloc = StoriesBlockProvider.of(context);
-    newsBloc.fetchTopIds();
     return buildList(newsBloc);
   }
 

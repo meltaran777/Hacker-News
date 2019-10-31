@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_data_fetching/src/data/model/item_model.dart';
+import 'package:flutter_data_fetching/src/ui/widget/loading_container.dart';
 
 class Comment extends StatelessWidget {
   final int itemId;
@@ -15,15 +16,19 @@ class Comment extends StatelessWidget {
         future: itemMap[itemId],
         builder: (context, AsyncSnapshot<ItemModel> snapshot) {
           if (!snapshot.hasData) {
-            return Text('Comment Loading... ');
+            return LoadingContainer();
           }
 
           final children = <Widget>[
             ListTile(
-              title: Text(snapshot.data.text),
+              title: buildText(snapshot.data.text),
               subtitle: snapshot.data.by != ''
                   ? Text(snapshot.data.by)
                   : Text('Deleted'),
+              contentPadding: EdgeInsets.only(
+                right: 16.0,
+                left: depth * 16.0,
+              ),
             ),
             Divider(),
           ];
@@ -41,5 +46,13 @@ class Comment extends StatelessWidget {
 
           return Column(children: children);
         });
+  }
+
+  Widget buildText(String text) {
+    final formattedText = text
+        .replaceAll('&#x27', "'")
+        .replaceAll('<p>', '\n\n')
+        .replaceAll('</p>', '');
+    return Text(formattedText);
   }
 }

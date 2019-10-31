@@ -22,6 +22,8 @@ class App extends StatelessWidget {
     if (settings.name == '/') {
       return MaterialPageRoute(
         builder: (context) {
+          final bloc = StoriesBlockProvider.of(context);
+          bloc.fetchTopIds();
           return HomeScreen();
         },
       );
